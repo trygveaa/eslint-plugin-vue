@@ -23,6 +23,11 @@ tester.run('no-v-for-template-key-on-child', rule, {
   valid: [
     {
       filename: 'test.vue',
+      code:
+        '<template><div><template v-for="x in list"><div :key="x.key">...</div><div v-for="y in x.sublist" :key="y.key">{{ y }}</div></template></div></template>'
+    },
+    {
+      filename: 'test.vue',
       code: ''
     },
     {
